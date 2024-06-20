@@ -5,25 +5,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom styles for a colorful and animated navbar */
+        body {
+            background-color: #f0f0f0; /* Light gray background */
+        }
+
+        .navbar {
+            background-color: #3498db; /* Blue background */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for navbar */
+            animation: fadeInDown 0.5s ease-out; /* Fade in animation */
+        }
+
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #58c0fc !important; /* White text */
+        }
+
+        .navbar-brand:hover, .navbar-nav .nav-link:hover {
+            color: #000000 !important; /* Yellow text on hover */
+            background-color: rgb(226, 234, 240);        }
+
+        .search-box {
+            border-radius: 20px;
+            border: none;
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.3); /* Transparent white background */
+            color: #fff; /* White text */
+            transition: background-color 0.3s ease;
+        }
+
+        .search-box:focus {
+            background-color: rgba(255, 255, 255, 0.5); /* Slightly more opaque white on focus */
+            outline: none;
+        }
+
+        .login-link {
+            color: #fff !important; /* White text */
+            background-color: #e74c3c; /* Red background */
+            border-radius: 20px;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-link:hover {
+            background-color: #c0392b; /* Darker red on hover */
+            color: #ffd700 !important; /* Yellow text on hover */
+        }
+
+        /* Keyframe animation for navbar */
+        @keyframes fadeInDown {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <!-- Navigation bar -->
-    <nav class="navbar">
-        <img src="images/icc1.png" alt="icc logo" class="icc-logo">
-        <ul class="nav-links">
-            <li class="nav-item"><a href="#about">About</a></li>
-            <li class="nav-item"><a href="#formats">Formats</a></li>
-            <li class="nav-item"><a href="#all-teams">Teams</a></li>
-            <li class="nav-item"><a href="#all-events">Events</a></li>
-            <li class="nav-item"><a href="#contact">Contact Us</a></li>
-        </ul>
-
-        <div class="right-container">
-            <input type="text" class="search-box" placeholder="Search">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <a class="navbar-brand" href="#">
+            <img src="images/icc1.png" alt="icc logo" class="icc-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#formats">Formats</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#all-teams">Teams</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#all-events">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
             <a href="https://sso.fanaccount.icc-cricket.com/auth/realms/ICC/protocol/openid-connect/auth?client_id=icc-sso-web&redirect_uri=https%3A%2F%2Fwww.icc-cricket.com%2Fhall-of-fame%2Fhall-of-famers&state=bf8addc7-f3c7-494b-9337-ba30ac9b2d24&response_mode=fragment&response_type=code&scope=openid&nonce=f26f34e9-80ae-4461-8143-a89270e0637a&_gl=1*7mm84q*_ga*ODQxMDc4NzY1LjE2OTA0Mzc0MDQ.*_ga_SB8SBQVNVM*MTY5MDQzNzQwNC4xLjEuMTY5MDQ0MDA2OS4zNi4wLjA."
-                class="login-link">LOGIN</a>
+                class="btn btn-primary ml-2">LOGIN</a>
         </div>
     </nav>
 
@@ -220,7 +301,19 @@
         <p class="copyright">2023 © International Cricket Council FZ LLC</p>
     </div>
 
-    <script src="index.js"></script>
+<!-- Bootstrap JS and jQuery (optional but required for Bootstrap functionality) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"
+    integrity="sha384-26B9i3XGRaFp4+d/DmlnBqjG4sA0tO/NyNvXgcb1+o1ks5POacIHJG86//6GTrL5"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+8k0W1Jq0vKW+3R5Ew0AgxE1JlIXH6EnBkM"
+    crossorigin="anonymous"></script>
+
+<!-- Your custom JavaScript -->
+<script src="index.js"></script>
 </body>
 
 </html>
